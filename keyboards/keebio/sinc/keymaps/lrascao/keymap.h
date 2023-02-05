@@ -8,7 +8,7 @@
 #define _______________FUNC_RIGHT______________       KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12
 
 #define ______________NUMBER_LEFT______________       KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_6
-#define ______________NUMBER_RIGHT_____________       KC_7,    KC_8,    KC_9,    KC_0
+#define ______________NUMBER_RIGHT_____________       KC_7,    TD(TD_PAREN_LCBRACE),    TD(TD_PAREN_RCBRACE),    KC_0
 
 #define _______________QWERTY_L1_______________       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _______________QWERTY_L2_______________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
