@@ -4,8 +4,6 @@
 #include "tapdance.h"
 #include "oled.h"
 
-LEADER_EXTERNS();
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_wrapper(
     KC_MUTE,       KC_ESC,    _______________FUNC_LEFT_______________,                          _______________FUNC_RIGHT______________,  KC_MPLY, KC_INS,
@@ -59,40 +57,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 oled_write_P(PSTR(QMK_VERSION), false);
             }
             break;
-        case KC_LEAD:
-            if (record->event.pressed) {
-                oled_leader(true);
-            }
-            break;
     }
 
   return true;
 }
 
-void matrix_scan_user(void) {
-  LEADER_DICTIONARY() {
-    leading = false;
-    leader_end();
-
-    oled_leader(false);
-    
-   /* SEQ_ONE_KEY(KC_F) { */
-    /*     // Anything you can do in a macro. */
-    /*     oled_notify(PSTR("qmk is awesome"), 5000); */
-    /* } */
-    /* SEQ_TWO_KEYS(KC_D, KC_D) { */
-    /*   SEND_STRING(SS_LCTL("a") SS_LCTL("c")); */
-    /* } */
-
-    /* SEQ_THREE_KEYS(KC_V, KC_S, KC_N) { */
-    /*     oled_notify(PSTR(QMK_VERSION), 5000); */
-    /* } */
-
-    /* SEQ_TWO_KEYS(KC_A, KC_S) { */
-    /*   register_code(KC_LGUI); */
-    /*   register_code(KC_S); */
-    /*   unregister_code(KC_S); */
-    /*   unregister_code(KC_LGUI); */
-    /* } */
-  }
+// leader callbacks
+// https://docs.qmk.fm/features/leader_key
+void leader_start_user(void) {
+    oled_leader(true);
 }
+
+void leader_end_user(void) {
+    oled_leader(false);
+}
+

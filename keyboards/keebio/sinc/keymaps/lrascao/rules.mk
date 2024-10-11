@@ -3,7 +3,7 @@ EXTRAFLAGS += -flto
 
 # OLED
 OLED_ENABLE = yes
-OLED_DRIVER = SSD1306
+OLED_DRIVER = ssd1306
 
 # All RGB animations disabled except rainbow swirl to save up
 # on firmware space
@@ -46,7 +46,7 @@ LOGO_ENABLE = yes
 # https://docs.qmk.fm/#/feature_auto_shift
 # AUTO_SHIFT_ENABLE = yes
 
-// https://docs.qmk.fm/#/feature_encoders?id=encoder-map
+# https://docs.qmk.fm/#/feature_encoders?id=encoder-map
 ENCODER_MAP_ENABLE = yes
 
 ifeq ($(strip $(OLED_ENABLE)), yes)
